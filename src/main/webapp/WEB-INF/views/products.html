@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home ::
+        w3layouts</title>
+    <!--/tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Elite Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--//tags -->
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{/css/font-awesome.css}" rel="stylesheet">
+<link th:href="@{/css/easy-responsive-tabs.css}" rel='stylesheet' type='text/css'/>
+    <!-- //for bootstrap working -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
+          rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header-bot -->
+<div class="header-bot">
+    <div class="header-bot_inner_wthreeinfo_header_mid">
+        <div class="col-md-4 header-middle">
+            <form action="#" th:action="@{/search-home}" method="post">
+                <input type="search" name="search" placeholder="Nhập tên sản phẩm..." required="">
+                <input type="submit" value=" ">
+                <div class="clearfix"></div>
+            </form>
+        </div>
+        <!-- header-bot -->
+        <div class="col-md-4 logo_agile">
+            <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag"
+                                                                  aria-hidden="true"></i></a></h1>
+        </div>
+        <!-- header-bot -->
+        <div class="col-md-4 agileits-social top_content">
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social">
+                <li class="share">Share On :</li>
+                <li><a href="#" class="facebook">
+                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="twitter">
+                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="instagram">
+                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="pinterest">
+                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                </a></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //header-bot -->
+<!-- banner -->
+<div class="ban-top">
+    <div class="container">
+        <div class="top_nav_left">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class=""><a class="menu__link" th:href="@{/}">Trang chủ </a></li>
+                            <li class="">
+                                <a th:href="@{/view-product}" class="menu__link" >Sản phẩm</a>
+                            </li>
+                            <li class=""><a class="menu__link" th:href="@{/view-contact}">Tiếp xúc</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="top_nav_right" style="margin-top: 15px;">
+            <ul class="clearfix">
+                <li>
+                    <a class="hvr-outline-out button2" style="padding: 10px;font-weight: bold;color:aliceblue; "
+                       th:href="@{/view-cart}"><i style="font-size: 28px;" class="fa fa-cart-arrow-down"
+                                                  aria-hidden="true"></i></a>
+                    <ul class="sub-menu">
+                        <div class="shopping-cart">
+
+                            <div class="shopping-cart-header">
+                                <i class="fa fa-shopping-cart cart-icon"></i><span th:text="${sl}" class="badge"/>
+
+                                <div class="shopping-cart-total">
+                                    <span th:if="${sl==0}"  class="lighter-text"></span>
+                                    <span th:unless="${sl==0}">Total:</span>
+                                    <span class="main-color-text" th:text="${total}">
+						  <span class="main-color-text">$</span>
+					  </span>
+                                </div>
+
+                            </div>
+                            <ul th:each="c :${cart}" class="shopping-cart-items">
+                                <li class="clearfix">
+                                    <img width="80px" height="80px" th:src="@{/images/}+${c.product.hinhAnh}"
+                                         alt="item1"/>
+                                    <span th:text="${c.product.tenSP}" class="item-name"/>
+                                    <span th:text="${c.product.giaSP}+'$'" class="item-price"/>
+                                    <span class="item-quantity">Quantity:<span class="item-quantity"
+                                                                               th:text="${c.quantity}"></span></span>
+                                </li>
+                            </ul>
+                            <a th:unless="${sl==0}" th:href="@{/view-cart}" class="buttonn">Giỏ hàng</a>
+                            <a th:unless="${sl==0}" th:href="@{/view-order}" class="buttonn">Thanh toán</a>
+                            <a href="@{/}"></a>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //banner-top -->
+<!-- banner -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>The Biggest <span>Sale</span></h3>
+                    <p>Special for today</p>
+                    <a class="hvr-outline-out button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item2">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Summer <span>Collection</span></h3>
+                    <p>New Arrivals On Sale</p>
+                    <a class="hvr-outline-out button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>The Biggest <span>Sale</span></h3>
+                    <p>Special for today</p>
+                    <a class="hvr-outline-out button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item4">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Summer <span>Collection</span></h3>
+                    <p>New Arrivals On Sale</p>
+                    <a class="hvr-outline-out button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="item item5">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>The Biggest <span>Sale</span></h3>
+                    <p>Special for today</p>
+                    <a class="hvr-outline-out button2" href="#">Shop Now </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!-- The Modal -->
+</div>
+<div class="container">
+    <div class="single-pro">
+        <div th:each="product : ${page}" class="col-md-3 product-men">
+            <div class="men-pro-item simpleCart_shelfItem">
+                <div class="men-thumb-item">
+                    <img th:src="@{/images/}+${product.hinhAnh}" alt="" class="pro-image-front">
+                    <img th:src="@{/images/}+${product.hinhAnh}" alt="" class="pro-image-back">
+                    <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                            <a th:href="@{/view-single/}+${product.id}" class="link-product-add-cart">Xem</a>
+                        </div>
+                    </div>
+                    <span class="product-new-top">New</span>
+
+                </div>
+                <div class="item-info-product ">
+                    <h4 th:text="${product.tenSP}"><a href="single.html"></a></h4>
+                    <div class="info-product-price">
+                        <span th:text="${product.giaSP}+'$'" class="item_price"></span>
+                    </div>
+                    <div>
+                        <a class="hvr-outline-out button2" style="padding: 10px;font-weight: bold;color:aliceblue; "
+                           th:href="@{/add-to-cart/}+${product.tenSP}">Thêm vào giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+<nav style=" text-align: center; padding: 50px;">
+    <!-- pagination-->
+    <ul class="pagination pagination-lg">
+        <li th:if="${page.hasPrevious()}">
+			<a th:href="@{/view-product(page=${page.number-1},size=${page.size})}" aria-label="Previous">
+				<span aria-hidden="true">«</span>
+			</a>
+		</li>
+		<th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
+			<li th:if="${page.number == i}" class="selected">
+				<a href="#">[[${i}+1]]</a>
+			</li>
+			<li th:unless="${page.number == i}">
+				<a th:href="@{/view-product(page=${i},size=${page.size})}">[[${i}+1]]</a>
+			</li>
+		</th:block>
+        <li th:if="${page.hasNext()}">
+			<a th:href="@{/view-product(page=${page.number+1},size=${page.size})}" aria-label="Next" ><span aria-hidden="true">»</span></a>
+		</li>
+    </ul>
+</nav>
+</div>
+<!-- //mens -->
+<!-- footer -->
+<div class="footer">
+    <div class="footer_agile_inner_info_w3l">
+        <div class="col-md-3 footer-left">
+            <h2><a href="index.html"><span>E</span>lite Shoppy </a></h2>
+            <p>Lorem ipsum quia dolor
+                sit amet, consectetur, adipisci velit, sed quia non
+                numquam eius modi tempora.</p>
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                <li><a href="#" class="facebook">
+                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="twitter">
+                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="instagram">
+                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                </a></li>
+                <li><a href="#" class="pinterest">
+                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                </a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 footer-right">
+            <div class="sign-grds">
+                <div class="col-md-4 sign-gd">
+                    <h4>Our <span>Information</span></h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Men's Wear</a></li>
+                        <li><a href="#">Women's wear</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Short Codes</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 sign-gd-two">
+                    <h4>Store <span>Information</span></h4>
+                    <div class="w3-address">
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Phone Number</h6>
+                                <p>+1 234 567 8901</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Email Address</h6>
+                                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="w3-address-grid">
+                            <div class="w3-address-left">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="w3-address-right">
+                                <h6>Location</h6>
+                                <p>Broome St, NY 10002,California, USA.
+
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 sign-gd flickr-post">
+                    <h4>Flickr <span>Posts</span></h4>
+                    <ul>
+                        <li><a href="#"><img th:src="@{/images/t1.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t2.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t3.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t4.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t1.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t2.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t3.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t2.jpg}" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="#"><img th:src="@{/images/t4.jpg}" alt=" " class="img-responsive" /></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <p class="copy-right">&copy 2017 Elite shoppy. All rights reserved
+        </p>
+    </div>
+</div>
+<!-- //footer -->
+<a href="#" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover"
+                                                                         style="opacity: 1;"> </span></a>
+<!-- js -->
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+<script th:src="@{/js/responsiveslides.min.js}"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: false,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+    });
+</script>
+<script th:src="@{/js/modernizr.custom.js}"></script>
+<!-- Custom-JavaScript-File-Links -->
+<!-- cart-js -->
+<script th:src="@{/js/minicart.min.js}"></script>
+<script>
+    // Mini Cart
+    paypal.minicart.render({
+        action: '#'
+    });
+
+    if (~window.location.search.indexOf('reset=true')) {
+        paypal.minicart.reset();
+    }
+</script>
+
+<!-- //cart-js -->
+<!---->
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function () {
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 9000,
+        values: [1000, 7000],
+        slide: function (event, ui) {
+            $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+        }
+    });
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+});//]]>
+
+</script>
+<script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
+<!---->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.easing.min.js}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+
+<!-- for bootstrap working -->
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>
